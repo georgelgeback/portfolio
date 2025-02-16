@@ -34,17 +34,17 @@ export default function MainLayout({
             min-h-screen     
             min-w-screen   
             items-top 
-            bg-white 
-            dark:bg-black
             w-full
+            relative
           `}
       >
-        <div className="object-left flex flex-row w-full">
+        <div className="absolute inset-0 -z-50 bg-white dark:bg-black"></div>
+        <div className="object-left flex flex-row w-full relative z-40">
           <Navbar />
         </div>
-        <div className="flex justify-center w-full">
+        <div className="flex justify-center w-full ">
           <div className="text-center flex flex-col lg:w-1/3">
-            <div className="flex flex-col gap-4 m-4">{children}</div>
+            <div className="flex flex-col gap-4 m-4 relative">{children}</div>
           </div>
         </div>
       </div>

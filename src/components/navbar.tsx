@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Navbar: React.FC = () => {
   return (
-    <header className="grid grid-cols-3 items-center bg-gray-100 dark:bg-gray-800 text-black dark:text-white p-4 w-full rounded-lg">
+    <header className="grid grid-cols-3 items-center bg-gray-100 dark:bg-gray-800 text-black dark:text-white p-4 w-full rounded-lg z-50">
       <div>
         <h1 className="text-2xl font-bold">Portfolio</h1>
       </div>

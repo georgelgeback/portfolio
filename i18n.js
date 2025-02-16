@@ -16,6 +16,9 @@ i18n
     resources: {
       en: {
         translation: {
+          home: {
+            title: "Home",
+          },
           description: {
             part3: "Learn React",
           },
@@ -23,6 +26,9 @@ i18n
       },
       sv: {
         translation: {
+          home: {
+            title: "Hem",
+          },
           description: {
             part3: "Lär dig React",
           },

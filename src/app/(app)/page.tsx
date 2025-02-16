@@ -1,19 +1,26 @@
+"use client";
+
 import React from "react";
+import FadeInDown from "@/components/fadein";
+import { useTranslation } from "react-i18next";
+import "../../../i18n";
 
 export default function Home() {
+  const { t } = useTranslation();
   return (
-    <h1>
-      home Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-      optio sapiente ab exercitationem maxime, alias pariatur facilis ullam ipsa
-      adipisci dolores reiciendis porro laborum id? Non voluptatibus amet
-      distinctio deleniti suscipit facilis explicabo tempore, saepe accusantium,
-      nihil cupiditate atque minus obcaecati. Atque inventore voluptatum tempore
-      repellendus, qui assumenda iure minus fugit neque aut eaque commodi earum
-      rem incidunt provident, dolores mollitia hic debitis ratione dolore sed
-      ut. Mollitia, deleniti facere consequatur id minus cupiditate laudantium
-      quo, saepe expedita exercitationem officiis voluptates? Exercitationem est
-      corrupti cum, esse dolorem debitis architecto, cumque assumenda, dolor
-      dignissimos blanditiis commodi non. Fugit incidunt fugiat itaque?
-    </h1>
+    <div className="relative -z-10">
+      <FadeInDown>
+        <h1 className="font-black text-5xl underline text-black dark:text-white">
+          {t("home.title")}
+        </h1>
+        <br />
+        <p className="text-black dark:text-white">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque non
+          nam quos consequatur sit ratione sed cupiditate dolore id, eaque iure
+          distinctio voluptatem magni commodi explicabo nihil beatae praesentium
+          doloribus.
+        </p>
+      </FadeInDown>
+    </div>
   );
 }
