@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
@@ -21,33 +20,18 @@ export default function MainLayout({
   if (!mounted) return null; // Avoid mismatched rendering on initial hydration
 
   return (
-    <>
-      <div
-        className={`
-            text-left  
-            mx-auto 
-            p-8
-            font-inter        
-            leading-normal    
-            font-normal      
-            antialiased    
-            min-h-screen     
-            min-w-screen   
-            items-top 
-            w-full
-            relative
-          `}
-      >
-        <div className="absolute inset-0 -z-50 bg-white dark:bg-black"></div>
-        <div className="object-left flex flex-row w-full relative z-40">
-          <Navbar />
+    <div className="flex flex-col">
+      <Navbar />
+
+      <main className="flex-grow flex justify-center w-full p-8 pt-0 flex-1">
+        <div className="text-center flex flex-col lg:w-[calc(33%+10rem)] md:w-[calc(50%+10rem)] sm:w-full">
+          <div className="flex flex-col gap-4 m-4">{children}</div>
         </div>
-        <div className="flex justify-center w-full ">
-          <div className="text-center flex flex-col lg:w-1/3">
-            <div className="flex flex-col gap-4 m-4 relative">{children}</div>
-          </div>
-        </div>
-      </div>
-    </>
+      </main>
+
+      <footer className="text-center text-sm p-4">
+        <p>{t("footer")}</p>
+      </footer>
+    </div>
   );
 }

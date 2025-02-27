@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Portfolio - Georg Elgebäck",
   description: "A portfolio website",
 };
 
@@ -28,9 +28,9 @@ export default async function RootLayout({
   const langCookie = (await cookieStore).get("i18next")?.value || "en";
 
   return (
-    <html lang={langCookie}>
+    <html lang={langCookie} className="">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full`}
       >
         <ClientI18nProvider initialLanguage={langCookie}>
           {children}
