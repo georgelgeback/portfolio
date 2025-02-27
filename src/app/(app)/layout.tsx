@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import "../../../i18n";
 import Navbar from "../../components/navbar";
+import Link from "next/link";
 
 export default function MainLayout({
   children,
@@ -20,7 +21,7 @@ export default function MainLayout({
   if (!mounted) return null; // Avoid mismatched rendering on initial hydration
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
 
       <main className="flex-grow flex justify-center w-full p-8 pt-0 flex-1">
@@ -29,8 +30,8 @@ export default function MainLayout({
         </div>
       </main>
 
-      <footer className="text-center text-sm p-4">
-        <p>{t("footer")}</p>
+      <footer className="text-center text-sm p-4 bg-gray-100 dark:bg-zinc-800">
+        <Link href="/projects">{t("footer")}</Link>
       </footer>
     </div>
   );

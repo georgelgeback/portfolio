@@ -14,8 +14,12 @@ export default function Home() {
         <h1 className="font-black text-5xl underline">{t("home.title")}</h1>
         <br />
         <p className="">
-          {t("home.description")}{" "}
-          <Link href="/contact" className="underline">
+          {t("home.description1")}
+          <a href="https://github.com/georgelgeback" className="underline">
+            {t("home.gitHub")}
+          </a>
+          {t("home.description2")}
+          <Link href="/projects" className="underline">
             {t("home.link")}
           </Link>
         </p>

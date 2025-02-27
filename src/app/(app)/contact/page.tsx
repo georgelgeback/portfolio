@@ -13,7 +13,12 @@ export default function Page() {
         <br />
         <p>
           {t("contact.description")}
-          <a href="mailto:MAIL"> MAIL</a>{" "}
+          <a
+            href="https://www.linkedin.com/in/georg-elgeback/"
+            className="underline"
+          >
+            LinkedIn.
+          </a>{" "}
         </p>
       </FadeInDown>
     </>

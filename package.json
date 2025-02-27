@@ -9,14 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "i18next": "^24.2.2",
     "i18next-browser-languagedetector": "^8.0.3",
-    "lucide-react": "^0.475.0",
+    "lucide-react": "^0.476.0",
     "next": "^15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-i18next": "^15.4.0",
-    "shadcn": "^2.4.0-canary.6"
+    "shadcn": "^2.4.0-canary.6",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.0",
