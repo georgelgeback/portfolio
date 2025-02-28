@@ -30,8 +30,8 @@ export default function MainLayout({
         </div>
       </main>
 
-      <footer className="text-center text-sm p-4 bg-gray-100 dark:bg-zinc-800">
-        <Link href="/projects">{t("footer")}</Link>
+      <footer className="text-center text-sm p-4 bg-primary-foreground">
+        <Link href="/projects/portfolio">{t("footer")}</Link>
       </footer>
     </div>
   );

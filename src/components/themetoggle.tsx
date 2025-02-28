@@ -28,7 +28,7 @@ const DarkModeToggle: React.FC = () => {
   return (
     <button
       onClick={() => setIsDark((prev) => !prev)}
-      className="p-2 rounded-lg !bg-gray-100 dark:!bg-gray-800 hover:!bg-gray-200 dark:hover:!bg-gray-700"
+      className="p-2 rounded-lg bg-primary-foreground hover:bg-gray-200 hover:dark:bg-zinc-800"
       aria-label="Toggle dark mode"
     >
       {isDark === null ? null : isDark ? (

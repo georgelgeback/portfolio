@@ -33,13 +33,17 @@ i18n
             title: "Projects",
             description:
               "This is a page where you can see all the projects I have worked on. This page will be updated regularly.",
-            project1: {
-              title: "Project 1",
+            portfolio: {
+              title: "Portfolio website",
+              teaser:
+                "This very website you're on right now! Made with React, with some next.js and i18next sprinkled in.",
               description:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ullam atque esse expedita voluptas doloremque facilis, assumenda nemo adipisci! Earum quasi tempore ea quibusdam quae eos, molestiae asperiores beatae ipsum autem consectetur animi, repellat totam hic aspernatur obcaecati itaque ex enim dolore adipisci deserunt tenetur veritatis voluptatibus minima. Facilis architecto atque placeat porro nam excepturi odit aspernatur sapiente, doloremque culpa eveniet ex veniam! Distinctio hic, veritatis ipsum perferendis doloremque consequatur? Natus cum culpa earum esse eum consequuntur praesentium odio consectetur minima dignissimos amet facere consequatur ut quibusdam blanditiis repudiandae omnis assumenda, laboriosam repellat est neque illum? ",
             },
-            project2: {
-              title: "Project 2",
+            web: {
+              title: "Fsektionen.se website",
+              teaser:
+                "The website for my student union at the Faculty of Engineering at Lund University.",
               description:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ullam atque esse expedita voluptas doloremque facilis, assumenda nemo adipisci! Earum quasi tempore ea quibusdam quae eos, molestiae asperiores beatae ipsum autem consectetur animi, repellat totam hic aspernatur obcaecati itaque ex enim dolore adipisci deserunt tenetur veritatis voluptatibus minima. Facilis architecto atque placeat porro nam excepturi odit aspernatur sapiente, doloremque culpa eveniet ex veniam! Distinctio hic, veritatis ipsum perferendis doloremque consequatur? Natus cum culpa earum esse eum consequuntur praesentium odio consectetur minima dignissimos amet facere consequatur ut quibusdam blanditiis repudiandae omnis assumenda, laboriosam repellat est neque illum? ",
             },
@@ -71,13 +75,17 @@ i18n
             title: "Projekt",
             description:
               "Det här är en sida där du kan se alla projekt jag har jobbat på. Den här sidan kommer att uppdateras regelbundet.",
-            project1: {
-              title: "Projekt 1",
+            portfolio: {
+              title: "Portfolio hemsida",
+              teaser:
+                "Den här hemsidan du är på just nu! Gjord med React, med lite next.js och i18next på toppen.",
               description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ullam atque esse expedita voluptas doloremque facilis, assumenda nemo adipisci! Earum quasi tempore ea quibusdam quae eos, molestiae asperiores beatae ipsum autem consectetur animi, repellat totam hic aspernatur obcaecati itaque ex enim dolore adipisci deserunt tenetur veritatis voluptatibus minima. Facilis architecto atque placeat porro nam excepturi odit aspernatur sapiente, doloremque culpa eveniet ex veniam! Distinctio hic, veritatis ipsum perferendis doloremque consequatur? Natus cum culpa earum esse eum consequuntur praesentium odio consectetur minima dignissimos amet facere consequatur ut quibusdam blanditiis repudiandae omnis assumenda, laboriosam repellat est neque illum? ",
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ullam atque esse expedita voluptas doloremque facilis, assumenda nemo adipisci! Earum quasi tempore ea quibusdam quae eos, molestiae asperiores beatae ipsum autem consectetur animi, repellat totam hic aspernatur obcaecati itaque ex enim dolore adipisci deserunt tenetur veritatis voluptatibus minima. Facilis architecto atque placeat porro nam excepturi odit aspernatur sapiente, doloremque culpa eveniet ex veniam! Distinctio hic, veritatis ipsum perferendis doloremque consequatur? Natus cum culpa earum esse eum consequuntur praesentium odio consectetur minima dignissimos amet facere consequatur ut quibusdam blanditiis repudiandae omnis assumenda, laboriosam repellat est neque illum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ullam atque esse expedita voluptas doloremque facilis, assumenda nemo adipisci! Earum quasi tempore ea quibusdam quae eos, molestiae asperiores beatae ipsum autem consectetur animi, repellat totam hic aspernatur obcaecati itaque ex enim dolore adipisci deserunt tenetur veritatis voluptatibus minima. Facilis architecto atque placeat porro nam excepturi odit aspernatur sapiente, doloremque culpa eveniet ex veniam! Distinctio hic, veritatis ipsum perferendis doloremque consequatur? Natus cum culpa earum esse eum consequuntur praesentium odio consectetur minima dignissimos amet facere consequatur ut quibusdam blanditiis repudiandae omnis assumenda, laboriosam repellat est neque illum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ullam atque esse expedita voluptas doloremque facilis, assumenda nemo adipisci! Earum quasi tempore ea quibusdam quae eos, molestiae asperiores beatae ipsum autem consectetur animi, repellat totam hic aspernatur obcaecati itaque ex enim dolore adipisci deserunt tenetur veritatis voluptatibus minima. Facilis architecto atque placeat porro nam excepturi odit aspernatur sapiente, doloremque culpa eveniet ex veniam! Distinctio hic, veritatis ipsum perferendis doloremque consequatur? Natus cum culpa earum esse eum consequuntur praesentium odio consectetur minima dignissimos amet facere consequatur ut quibusdam blanditiis repudiandae omnis assumenda, laboriosam repellat est neque illum?  ",
             },
-            project2: {
-              title: "Projekt 2",
+            web: {
+              title: "Fsektionen.se hemsida",
+              teaser:
+                "Hemsidan för min studentkår vid Lunds Tekniska Högskola.",
               description:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ullam atque esse expedita voluptas doloremque facilis, assumenda nemo adipisci! Earum quasi tempore ea quibusdam quae eos, molestiae asperiores beatae ipsum autem consectetur animi, repellat totam hic aspernatur obcaecati itaque ex enim dolore adipisci deserunt tenetur veritatis voluptatibus minima. Facilis architecto atque placeat porro nam excepturi odit aspernatur sapiente, doloremque culpa eveniet ex veniam! Distinctio hic, veritatis ipsum perferendis doloremque consequatur? Natus cum culpa earum esse eum consequuntur praesentium odio consectetur minima dignissimos amet facere consequatur ut quibusdam blanditiis repudiandae omnis assumenda, laboriosam repellat est neque illum? ",
             },

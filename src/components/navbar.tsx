@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
   return (
     <div
       className={`
-          bg-gray-100 dark:bg-zinc-800 rounded-lg sticky top-0 z-50 m-5 transition-[margin] duration-300 ease-in-out
+          bg-primary-foreground rounded-lg sticky top-0 z-50 m-5 transition-[margin] duration-300 ease-in-out
           ${scrolled ? "lg:mx-[calc(20%)] not-lg:mx-5 shadow" : "mx-5"}
         `}
     >

@@ -22,17 +22,18 @@ export default function Page() {
         </p>
         <div className="flex flex-col p-4 space-y-5 w-full">
           <CustomCard
-            title={t("projects.project1.title")}
-            description={t("projects.project1.description")}
-            imageUrl="https://http.cat/400"
+            title={t("projects.portfolio.title")}
+            description={t("projects.portfolio.teaser")}
+            imageUrl="https://http.cat/200"
             rightImage={false}
-            pageRoute="contact"
+            pageRoute="projects/portfolio"
           ></CustomCard>
           <CustomCard
-            title={t("projects.project2.title")}
-            description={t("projects.project2.description")}
-            imageUrl="https://http.cat/401"
+            title={t("projects.web.title")}
+            description={t("projects.web.teaser")}
+            imageUrl="https://http.cat/418"
             rightImage={true}
+            pageRoute="projects/web"
           ></CustomCard>
           <CustomCard title="Test" description="asodasi"></CustomCard>
           <CustomCard title="Test" description="asodasi"></CustomCard>
