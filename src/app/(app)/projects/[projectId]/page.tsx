@@ -21,11 +21,10 @@ export async function generateStaticParams() {
 }
 
 // Marking this component async is often required so that Next.js can handle dynamic route parameters
-export default async function ProjectPage({
-  params,
-}: {
-  params: { projectId: string };
+export default async function ProjectPage(props: {
+  params: Promise<{ projectId: string }>;
 }) {
+  const params = await props.params;
   const { projectId } = params;
 
   // Here you might fetch data or perform other async operations if needed

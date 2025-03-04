@@ -38,9 +38,9 @@ export default function ProjectPageClient({
   const { t } = useTranslation();
   const projectData = projects[projectId] || {
     title: "Unknown Project",
-    description: "This project does not exist.",
+    description: "If you were linked here, the link is broken.",
     image: "/images/default.jpg",
-    imageAlt: "Default image",
+    imageAlt: "Alternative text for the default image",
   };
 
   return (
