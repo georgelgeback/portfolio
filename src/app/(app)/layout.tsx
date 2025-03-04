@@ -25,8 +25,8 @@ export default function MainLayout({
       <Navbar />
 
       <main className="flex-grow flex justify-center w-full p-8 pt-0 flex-1">
-        <div className="text-center flex flex-col lg:w-[calc(33%+10rem)] md:w-[calc(50%+10rem)] sm:w-full">
-          <div className="flex flex-col gap-4 m-4">{children}</div>
+        <div className="text-center flex flex-col lg:w-[calc(33%+10rem)] md:w-[calc(50%+10rem)] w-full">
+          <div className="flex flex-col gap-4 sm:m-4">{children}</div>
         </div>
       </main>
 

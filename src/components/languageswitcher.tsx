@@ -28,29 +28,34 @@ const LanguageSwitcher = () => {
   const languages = {
     en: { flag: "/flags/gb.svg", alt: "English" },
     sv: { flag: "/flags/se.svg", alt: "Swedish" },
-  };
+  } as const;
+
+  type LanguageKey = keyof typeof languages;
 
   // Hydration mismatch workaround
   if (!language) return null;
 
   return (
     <div className="flex gap-2">
-      {Object.keys(languages).map((lng) => (
-        <button
-          key={lng}
-          onClick={() => handleLanguageChange(lng)}
-          className={`p-1 transition-opacity ${
-            language === lng ? "opacity-100" : "opacity-50 hover:opacity-100"
-          }`}
-        >
-          <Image
-            src={languages[lng].flag}
-            alt={languages[lng].alt}
-            width={24}
-            height={16}
-          />
-        </button>
-      ))}
+      {Object.keys(languages).map((lng) => {
+        const key = lng as LanguageKey;
+        return (
+          <button
+            key={lng}
+            onClick={() => handleLanguageChange(lng)}
+            className={`p-1 transition-opacity ${
+              language === lng ? "opacity-100" : "opacity-50 hover:opacity-100"
+            }`}
+          >
+            <Image
+              src={languages[key].flag}
+              alt={languages[key].alt}
+              width={24}
+              height={16}
+            />
+          </button>
+        );
+      })}
     </div>
   );
 };

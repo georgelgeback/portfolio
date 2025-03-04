@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientI18nProvider from "./clienti18nprovider";
@@ -19,22 +18,17 @@ export const metadata: Metadata = {
   description: "A portfolio website",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  const cookieStore = cookies();
-  const langCookie = (await cookieStore).get("i18next")?.value || "en";
-
+}) {
   return (
-    <html lang={langCookie} className="">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full`}
       >
-        <ClientI18nProvider initialLanguage={langCookie}>
-          {children}
-        </ClientI18nProvider>
+        <ClientI18nProvider initialLanguage="en">{children}</ClientI18nProvider>
       </body>
     </html>
   );

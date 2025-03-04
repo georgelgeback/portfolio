@@ -31,13 +31,13 @@ const Navbar: React.FC = () => {
           ${scrolled ? "lg:mx-[calc(20%)] not-lg:mx-5 shadow" : "mx-5"}
         `}
     >
-      <header className="grid grid-cols-3 items-center p-4 w-full">
-        <div>
+      <header className="grid grid-cols-2 sm:grid-cols-3 items-center p-4 w-full">
+        <div className="hidden sm:block">
           <h1 className="text-2xl font-bold">Georg Elgebäck</h1>
         </div>
         <div className="flex justify-center">
           <nav>
-            <ul className="flex space-x-4">
+            <ul className="flex space-x-2 ml-4 sm:space-x-4">
               <li>
                 <Link
                   href="/"
