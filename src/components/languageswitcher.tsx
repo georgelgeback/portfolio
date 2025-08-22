@@ -10,7 +10,6 @@ const LanguageSwitcher = () => {
     // Retrieve language from localStorage or use i18n's resolvedLanguage or default to 'en'
     const storedLanguage = localStorage.getItem("i18nextLng");
     const initialLanguage = storedLanguage || i18n.resolvedLanguage || "en";
-    console.log("Initial language:", initialLanguage);
     setLanguage(initialLanguage);
   }, [i18n.resolvedLanguage]);
 

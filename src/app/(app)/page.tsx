@@ -3,7 +3,6 @@
 import React from "react";
 import FadeInDown from "@/components/fadein";
 import { useTranslation } from "react-i18next";
-import "../../../i18n";
 import Link from "next/link";
 
 export default function Home() {
