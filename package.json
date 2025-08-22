@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/esbuild": "^3.1.0",
+    "@mdx-js/loader": "^3.1.0",
+    "@next/mdx": "^15.5.0",
+    "@tailwindcss/typography": "^0.5.16",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "i18next": "^24.2.2",

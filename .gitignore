@@ -43,3 +43,4 @@ bun.lock
 
 # vscode
 .vscode
+.prettierrc
