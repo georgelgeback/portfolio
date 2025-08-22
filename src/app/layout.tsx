@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientI18nProvider from "./clienti18nprovider";
+import { ThemeProvider } from 'next-themes'
+import { headers } from "next/headers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,17 +23,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const headersList = await headers();
+  const initialLanguage =
+		(headersList.get("x-initial-language") as "sv" | "en") || "en";
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full`}
       >
-        <ClientI18nProvider initialLanguage="en">{children}</ClientI18nProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ClientI18nProvider initialLanguage={initialLanguage}>{children}</ClientI18nProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

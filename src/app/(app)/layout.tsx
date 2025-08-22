@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
-import "../../../i18n";
 import Navbar from "../../components/navbar";
 import Link from "next/link";
 
@@ -11,15 +10,7 @@ export default function MainLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [mounted, setMounted] = useState(false);
   const { t } = useTranslation();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null; // Avoid mismatched rendering on initial hydration
-
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
