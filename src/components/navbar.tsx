@@ -8,6 +8,15 @@ const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
 
+  // text shadows to improve contrast on varied backgrounds
+  const titleStyle = {
+    textShadow: "0 1px 0 rgba(255,255,255,0.28)",
+  };
+
+  const linkStyle = {
+    textShadow: "0 1px 0 rgba(255,255,255,0.2)",
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -27,21 +36,24 @@ const Navbar: React.FC = () => {
   return (
     <div
       className={`
-          bg-primary-foreground rounded-lg sticky top-0 z-50 m-5 transition-[margin] duration-300 ease-in-out
-          ${scrolled ? "lg:mx-[calc(20%)] not-lg:mx-5 shadow" : "mx-5"}
+          bg-white/25 dark:bg-neutral-900/40 bg-clip-padding backdrop-blur-xl rounded-lg sticky top-0 z-50 m-5 transition-[margin] duration-300 ease-in-out border border-foreground/10
+          ${scrolled ? "lg:mx-[calc(20%)] not-lg:mx-5 shadow-lg" : "mx-5"}
         `}
     >
       <header className="grid grid-cols-2 sm:grid-cols-3 items-center p-4 w-full">
         <div className="hidden sm:block">
-          <h1 className="text-2xl font-bold">Georg Elgebäck</h1>
+          <h1 className="text-2xl font-bold" style={titleStyle}>
+            Georg Elgebäck
+          </h1>
         </div>
         <div className="flex justify-center">
-          <nav>
-            <ul className="flex space-x-2 ml-4 sm:space-x-4">
+          <nav className="w-full">
+            <ul className="flex flex-wrap justify-center items-center text-base sm:text-lg md:text-xl space-x-2 sm:space-x-4">
               <li>
                 <Link
                   href="/"
-                  className="hover:text-gray-700 dark:hover:text-gray-400"
+                  className="hover:dark:opacity-80 hover:opacity-60"
+                  style={linkStyle}
                 >
                   {t("nav.home")}
                 </Link>
@@ -49,7 +61,8 @@ const Navbar: React.FC = () => {
               <li>
                 <Link
                   href="/projects"
-                  className="hover:text-gray-700 dark:hover:text-gray-400"
+                  className="hover:dark:opacity-80 hover:opacity-60"
+                  style={linkStyle}
                 >
                   {t("nav.projects")}
                 </Link>
@@ -57,7 +70,8 @@ const Navbar: React.FC = () => {
               <li>
                 <Link
                   href="/contact"
-                  className="hover:text-gray-700 dark:hover:text-gray-400"
+                  className="hover:dark:opacity-80 hover:opacity-60"
+                  style={linkStyle}
                 >
                   {t("nav.contact")}
                 </Link>
@@ -65,7 +79,7 @@ const Navbar: React.FC = () => {
             </ul>
           </nav>
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-end gap-1">
           <DarkModeToggle />
           <LanguageSwitcher />
         </div>

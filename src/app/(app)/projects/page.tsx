@@ -18,21 +18,18 @@ export default function Page() {
             title={t("projects.portfolio.title")}
             description={t("projects.portfolio.teaser")}
             imageUrl="/portfolio.png"
-            rightImage={false}
             pageRoute="projects/portfolio"
           ></CustomCard>
           <CustomCard
             title={t("projects.web.title")}
             description={t("projects.web.teaser")}
             imageUrl="/web.png"
-            rightImage={true}
             pageRoute="projects/web"
           ></CustomCard>
           <CustomCard
             title={t("projects.app.title")}
             description={t("projects.app.teaser")}
             imageUrl="/app.png"
-            rightImage={false}
             directLink="https://github.com/fsek/App2"
           ></CustomCard>
         </div>

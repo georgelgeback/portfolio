@@ -17,11 +17,13 @@ export default function MainLayout({
 
       <main className="flex-grow flex justify-center w-full p-8 pt-0 flex-1">
         <div className="text-center flex flex-col lg:w-[calc(33%+10rem)] md:w-[calc(50%+10rem)] w-full">
-          <div className="flex flex-col gap-4 sm:m-4">{children}</div>
+          <div className="flex flex-col gap-4 sm:m-4 text-foreground">
+            {children}
+          </div>
         </div>
       </main>
 
-      <footer className="text-center text-sm p-4 bg-primary-foreground">
+      <footer className="text-center text-sm p-4 bg-card border-t-2 border-foreground/10">
         <Link href="/projects/portfolio">{t("footer")}</Link>
       </footer>
     </div>
