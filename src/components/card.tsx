@@ -37,7 +37,7 @@ const CustomCard = ({
       )}
       <div className="absolute inset-0 flex items-end p-4 bg-black/5 group-hover:bg-black/20 transition-colors">
         <div className="w-full bg-background/60 p-3 rounded-lg backdrop-blur-md border border-white/20">
-          <CardTitle className="text-primary font-semibold text-lg mb-1 text-left">
+          <CardTitle className="text-card-foreground font-semibold text-lg mb-1 text-left">
             {title}
           </CardTitle>
           <CardDescription className="text-sm text-card-foreground line-clamp-3 text-justify">
