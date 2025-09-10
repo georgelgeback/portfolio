@@ -2,40 +2,31 @@
   "notFound": "Page Not Found",
   "home": {
     "title": "Home",
-    "description1":
-      "Welcome to my portfolio! This site will be updated regularly as I create new things and work on more projects. If you want to see most of the things I've done so far, you can check out ",
+    "description1": "Welcome to my portfolio! This site will be updated regularly as I create new things and work on more projects. If you want to see most of the things I've done so far, you can check out ",
     "gitHub": "my GitHub page",
-    "description2":
-      " or if you want a more refined experience, you can go to ",
+    "description2": " or if you want a more refined experience, you can go to ",
     "link": "my projects."
   },
   "contact": {
     "title": "Contact",
-    "description":
-      "There will be an email adress here eventually. For now, you are very welcome to contact me through <0>LinkedIn</0> or visit my profile on <1>GitHub</1>."
+    "description": "You are very welcome to contact me through <0>LinkedIn</0> or visit my profile on <1>GitHub</1>, but you can also reach me via email: "
   },
   "projects": {
     "title": "Projects",
-    "description":
-      "This is a page where you can see some of the projects I have worked on. This page will be updated regularly.",
+    "description": "This is a page where you can see some of the projects I have worked on. This page will be updated regularly.",
     "portfolio": {
       "title": "My Portfolio Website",
-      "teaser":
-        "This very website you're on right now! Made with React, with some next.js and Tailwind CSS sprinkled in. Click on this card to learn more!",
-      "description":
-        "This website is currently a work in progress. It's written in TypeScript, with Next.js as the framework to be able to use its excellent app router system and React since that's what I'm most comfortable with. Some of the components used here are taken from the Shadcn library, and all of the components use Tailwind CSS v.4. Localisation is handled with i18next. If you're reading this on the web, it's being hosted using Vercel. All the code is available on my <1>GitHub page found here</1>.\n\nDuring my work with this website, I've learned a lot about the systems mentioned above and how to use them, as well as how to singlehandedly see a project like this through from start to finish. I believe this will be useful both in my work on the same stack (see the web project <2>here</2>) and on entirely different projects in the future."
+      "teaser": "This very website you're on right now! Made with React, with some next.js and Tailwind CSS sprinkled in. Click on this card to learn more!",
+      "description": "This website is currently a work in progress. It's written in TypeScript, with Next.js as the framework to be able to use its excellent app router system and React since that's what I'm most comfortable with. Some of the components used here are taken from the Shadcn library, and all of the components use Tailwind CSS v.4. Localisation is handled with i18next. If you're reading this on the web, it's being hosted using Vercel. All the code is available on my <1>GitHub page found here</1>.\n\nDuring my work with this website, I've learned a lot about the systems mentioned above and how to use them, as well as how to singlehandedly see a project like this through from start to finish. I believe this will be useful both in my work on the same stack (see the web project <2>here</2>) and on entirely different projects in the future."
     },
     "web": {
       "title": "The Fsektionen.se Website",
-      "teaser":
-        "The website for my student guild at the Faculty of Engineering at Lund University. Written using largely the same stack as this website. Not yet deployed.",
-      "description":
-        "Since the start of 2025, I have been working together with other members of the programming committe at my student guild rebuilding the website for our guild (the old one currently inhabiting fsektionen.se is about 11 years old). Much like this website, it's written in TypeScript, with Next.js as the framework and React as the general library. We make extensive use of tailwind and the Shadcn library for styling, and localisation is handled using i18next. The website is hosted on our own server and connects to the backend via FastAPI. The actual database uses PostgreSQL and SQLAlchemy for the ORM. I have limited experience working on the backend, but I have worked on it enough to know my way around it and to edit minor things I find in need of fixing. The code for the frontend is available on our GitHub page <3>here</3>, and the backend can be accessed in the same manner <4>here</4>.\n\nWorking on building the new website has given me tons of experience in working in teams of different sizes, as well as how to work on features that need to be adaptable enough to be changed as the design is finalised and customisable enough to fit in entirely different parts of the website."
+      "teaser": "The website for my student guild at the Faculty of Engineering at Lund University. Written using largely the same stack as this website. Not yet deployed.",
+      "description": "Since the start of 2025, I have been working together with other members of the programming committe at my student guild rebuilding the website for our guild (the old one currently inhabiting fsektionen.se is about 11 years old). Much like this website, it's written in TypeScript, with Next.js as the framework and React as the general library. We make extensive use of tailwind and the Shadcn library for styling, and localisation is handled using i18next. The website is hosted on our own server and connects to the backend via FastAPI. The actual database uses PostgreSQL and SQLAlchemy for the ORM. I have limited experience working on the backend, but I have worked on it enough to know my way around it and to edit minor things I find in need of fixing. The code for the frontend is available on our GitHub page <3>here</3>, and the backend can be accessed in the same manner <4>here</4>.\n\nWorking on building the new website has given me tons of experience in working in teams of different sizes, as well as how to work on features that need to be adaptable enough to be changed as the design is finalised and customisable enough to fit in entirely different parts of the website."
     },
     "app": {
       "title": "The F-guild App",
-      "teaser":
-        "The app for my student guild, which I have worked on for the last year. Written in Dart using Flutter. Working on this project improved my ability to work in a team on a faster schedule than I have on the website so far. Click the card to see the code!"
+      "teaser": "The app for my student guild, which I have worked on for the last year. Written in Dart using Flutter. Working on this project improved my ability to work in a team on a faster schedule than I have on the website so far. Click the card to see the code!"
     }
   },
   "nav": {

@@ -3,9 +3,15 @@
 import React from "react";
 import FadeInDown from "@/components/fadein";
 import { Trans, useTranslation } from "react-i18next";
+import Obfuscate from "react-obfuscate";
 
 export default function Page() {
   const { t } = useTranslation();
+  // Build email from pieces
+  const name = ["el", "geb", "ack", "+web"].join("");
+  const local = ["georg", name].join(".");
+  const domain = ["g", "mail"].join("");
+  const email = `${local}${String.fromCharCode(64)}${domain}.${"com"}`;
   return (
     <>
       <FadeInDown>
@@ -28,6 +34,10 @@ export default function Page() {
               Placeholder text
             </a>
           </Trans>
+          <Obfuscate
+            email={email}
+            style={{ textDecoration: "underline", display: "inline-block" }}
+          />
         </p>
       </FadeInDown>
     </>
