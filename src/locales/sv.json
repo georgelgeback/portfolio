@@ -3,9 +3,7 @@
   "home": {
     "title": "Hem",
     "description1": "Välkommen till min portfolio! Denna sida kommer att uppdateras löpande allt eftersom jag blir klar med fler projekt. Om du vill se det mesta av det jag har gjort hittills kan du gå till ",
-    "gitHub": "min GitHub-sida",
-    "description2": ". Om du vill ha en mer raffinerad upplevelse kan du utforska ",
-    "link": "mina projekt."
+    "gitHub": "min GitHub-sida"
   },
   "contact": {
     "title": "Kontakt",
@@ -13,7 +11,7 @@
   },
   "projects": {
     "title": "Projekt",
-    "description": "Det här är en sida där du kan se ett urval av de projekt jag har jobbat på. Denna sida kommer att uppdateras regelbundet.",
+    "description": "Det här är en sida där du kan se ett urval av de projekt jag har jobbat på nyligen. Klicka på korten för att läsa mer om varje projekt.",
     "portfolio": {
       "title": "Min portfolio hemsida",
       "teaser": "Den hemsidan du är på just nu! Gjord med React, med lite Next.js och Tailwind ovanpå. Klicka på kortet för att lära dig mer!",
@@ -21,7 +19,7 @@
     },
     "web": {
       "title": "Fsektionen.se",
-      "teaser": "Hemsidan för min studentkår vid Lunds Tekniska Högskola, skriven med nästan samma stack som denna hemsida. Inte publicerad ännu.",
+      "teaser": "Hemsidan för min studentkår vid Lunds Tekniska Högskola som har nästan 800 användare. Klicka här för att läsa mer!",
       "description": "Sedan början på 2025 har jag tillsammans med andra medlemmar i programmeringskommittén på min studentsektion arbetat med att bygga om sektionens webbplats (den gamla som nu tar upp fsektionen.se är cirka 11 år gammal). Precis som denna webbplats är den skriven i TypeScript, med Next.js som ramverk och React som huvudbibliotek. Vi använder Tailwind och Shadcn-biblioteket för styling, och lokaliseringshanteringen sker via i18next. Webbplatsen är hostad på vår egen server och kommunicerar med backend via FastAPI. Databasen är baserad på PostgreSQL och använder SQLAlchemy som ORM. Jag har begränsad erfarenhet av utveckling av vår backend, men har arbetat med den tillräckligt för att förstå strukturen och kunna göra mindre ändringar vid behov. Koden för frontend finns tillgänglig på vår GitHub-sida <3>här</3>, och backend-koden kan nås på samma sätt <4>här</4>.\n\nAtt arbeta med den nya webbplatsen har gett mig mycket erfarenhet av att jobba i team av olika storlekar, samt hur man utvecklar funktioner som behöver vara tillräckligt flexibla för att anpassas när designen slutligen fastställs och tillräckligt konfigurerbara för att passa in på helt olika delar av webbplatsen."
     },
     "app": {

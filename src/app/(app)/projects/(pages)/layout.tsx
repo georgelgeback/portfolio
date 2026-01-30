@@ -12,8 +12,8 @@ export default function ProjectLayout({
   return (
     <div className="relative w-full">
       <div className="fixed top-40 lg:left-[calc(33%-7rem)] md:left-[calc(25%-7rem)] z-50">
-        <Link href="/projects">
-          <button className="p-2.5 bg-secondary rounded-lg shadow hover:bg-primary group">
+        <Link href="/">
+          <button className="p-2.5 bg-secondary rounded-lg shadow hover:bg-primary group hidden md:block">
             <ArrowLeft
               size={24}
               className="text-secondary-foreground group-hover:text-primary-foreground"

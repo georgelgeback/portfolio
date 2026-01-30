@@ -2,10 +2,8 @@
   "notFound": "Page Not Found",
   "home": {
     "title": "Home",
-    "description1": "Welcome to my portfolio! This site will be updated regularly as I create new things and work on more projects. If you want to see most of the things I've done so far, you can check out ",
-    "gitHub": "my GitHub page",
-    "description2": " or if you want a more refined experience, you can go to ",
-    "link": "my projects."
+    "description1": "Welcome to my portfolio! If you want to see most of the things I've done so far, you can check out ",
+    "gitHub": "my GitHub page."
   },
   "contact": {
     "title": "Contact",
@@ -13,7 +11,7 @@
   },
   "projects": {
     "title": "Projects",
-    "description": "This is a page where you can see some of the projects I have worked on. This page will be updated regularly.",
+    "description": "Below you can see a collection of the projects I've been working on recently. Click on the cards to learn more about each project.",
     "portfolio": {
       "title": "My Portfolio Website",
       "teaser": "This very website you're on right now! Made with React, with some next.js and Tailwind CSS sprinkled in. Click on this card to learn more!",
@@ -21,7 +19,7 @@
     },
     "web": {
       "title": "The Fsektionen.se Website",
-      "teaser": "The website for my student guild at the Faculty of Engineering at Lund University. Written using largely the same stack as this website. Not yet deployed.",
+      "teaser": "The website for my student organisation at Lund University, serving almost 800 users. Click me to read more!",
       "description": "Since the start of 2025, I have been working together with other members of the programming committe at my student guild rebuilding the website for our guild (the old one currently inhabiting fsektionen.se is about 11 years old). Much like this website, it's written in TypeScript, with Next.js as the framework and React as the general library. We make extensive use of tailwind and the Shadcn library for styling, and localisation is handled using i18next. The website is hosted on our own server and connects to the backend via FastAPI. The actual database uses PostgreSQL and SQLAlchemy for the ORM. I have limited experience working on the backend, but I have worked on it enough to know my way around it and to edit minor things I find in need of fixing. The code for the frontend is available on our GitHub page <3>here</3>, and the backend can be accessed in the same manner <4>here</4>.\n\nWorking on building the new website has given me tons of experience in working in teams of different sizes, as well as how to work on features that need to be adaptable enough to be changed as the design is finalised and customisable enough to fit in entirely different parts of the website."
     },
     "app": {

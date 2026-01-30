@@ -7,17 +7,16 @@ import Obfuscate from "react-obfuscate";
 
 export default function Page() {
   const { t } = useTranslation();
-  // Build email from pieces
-  const name = ["el", "geb", "ack", "+web"].join("");
-  const local = ["georg", name].join(".");
-  const domain = ["g", "mail"].join("");
-  const email = `${local}${String.fromCharCode(64)}${domain}.${"com"}`;
+  // Build email from pieces, you can never be too safe
+  const name = ["web.", "contact"].join("");
+  const domain = ["geo", "rgelgeback"].join("");
+  const email = `${name}${String.fromCharCode(64)}${domain}.${"com"}`;
   return (
     <>
       <FadeInDown>
         <h1 className="font-black text-5xl underline">{t("contact.title")}</h1>
         <br />
-        <p>
+        <p className="text-left">
           <Trans i18nKey="contact.description">
             <a
               href="https://www.linkedin.com/in/georg-elgeback/"

@@ -48,11 +48,11 @@ const Navbar: React.FC = () => {
         </div>
         <div className="flex justify-center">
           <nav className="w-full">
-            <ul className="flex flex-wrap justify-center items-center text-base sm:text-lg md:text-xl space-x-2 sm:space-x-4">
+            <ul className="flex flex-row justify-center items-center text-base sm:text-lg md:text-xl space-x-2 sm:space-x-4">
               <li>
                 <Link
                   href="/"
-                  className="hover:dark:opacity-80 hover:opacity-60"
+                  className="hover:text-primary/80"
                   style={linkStyle}
                 >
                   {t("nav.home")}
@@ -60,17 +60,8 @@ const Navbar: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="/projects"
-                  className="hover:dark:opacity-80 hover:opacity-60"
-                  style={linkStyle}
-                >
-                  {t("nav.projects")}
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/contact"
-                  className="hover:dark:opacity-80 hover:opacity-60"
+                  className="hover:text-primary/80"
                   style={linkStyle}
                 >
                   {t("nav.contact")}

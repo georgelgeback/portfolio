@@ -1,22 +1,130 @@
+import ProjectLinksCard, { Technology } from "@/components/ProjectLinksCard";
+import { technologies } from "@/app/(app)/projects/(pages)/web/page";
+
+export const exampleTimeline = {
+  start: "2023-10-30",
+  startNote: "Initial idea, planning",
+  end: "2026-01-26",
+  endNote: "Welcoming new members",
+  points: [
+    { date: "2024-01-20", note: "I joined project" },
+    { date: "2025-01-01", note: "Planning intensifies" },
+    { date: "2025-03-15", note: "Start of development" },
+    { date: "2025-09-01", note: "Public release" },
+  ],
+};
+
 # The Fsektionen.se Website
 
-![Image of the calendar](/web.png)
+![Image of the current landing page](/web.png)
 
-Since the start of 2025, I have been working together with other members of the
-programming committe at my student guild rebuilding the website for our guild
-(the old one currently inhabiting fsektionen.se is about 11 years old). Much
-like this website, it's written in TypeScript, with Next.js as the framework and
-React as the general library. We make extensive use of tailwind and the Shadcn
-library for styling, and localisation is handled using i18next. The website is
-hosted on our own server and connects to the backend via FastAPI. The actual
-database uses PostgreSQL and SQLAlchemy for the ORM. I have limited experience
-working on the backend, but I have worked on it enough to know my way around it
-and to edit minor things I find in need of fixing. The code for the frontend is
-available on our GitHub page [here](https://github.com/fsek/WWW-Web), and the
-backend can be accessed in the same manner
-[here](https://github.com/fsek/WebWebWeb).
+<ProjectLinksCard
+  title="Info and links for the website"
+  codeUrl="https://github.com/fsek/WWW-Web"
+  codeName="GitHub"
+  websiteUrl="https://fsektionen.se"
+  websiteName="Fsektionen.se"
+  technologies={technologies}
+  timeline={exampleTimeline}
+/>
+---
 
-Working on building the new website has given me tons of experience in working
-in teams of different sizes, as well as how to work on features that need to be
-adaptable enough to be changed as the design is finalised and customisable
-enough to fit in entirely different parts of the website.
+### Introduction
+
+Since the start of 2024, intensifying since the start of 2025, I have been
+working together with members of the programming committee at my student
+organization rebuilding the website for our organization. I'm the primary
+frontend contributor, having written around 36% of the code as well as working
+on many project-level systems such as our API generation, server side rendering
+and translation loading. I've also contributed significantly to the backend,
+where I'm the second foremost contributor for all work done since the start
+of 2025. Around 6 developers work on the full stack.
+
+The scale of collaboration has taught me many lessons in addition to learning
+basic React, FastAPI etc. from the stack we're working with. I think knowing how
+to collaborate in larger groups and giving feedback on code to other developers
+will be especially useful in the future.
+
+In addition to this, a key part of my work for the committee has been
+participating in interviews for, and teaching the 15 or so new members who join
+each year how to work on our projects. This has led to a greater understanding
+on my part on how to communicate clearly and structure learning for people with
+different starting skills.
+
+### Metrics
+
+The website handles almost 800 member accounts at present. In some specific
+situations, such as when new albums are released in the image gallery, when
+event signups open or when the digital songbook is needed during an event, peaks
+at over 300 concurrent connections need to be handled by the server. This is
+something our previous setup struggled with, but with our current stack
+everything works smoothly despite the single machine setup. Since we don't track
+our users more than this, we unfortunately don't have more detailed metrics.
+
+### Tech Stack Details
+
+The system we replaced was an 11-year old legacy system using Ruby on Rails,
+which led to essentially nobody having more than a cursory understanding of how
+the website worked. The new site, like [this portfolio](/projects/portfolio), is
+written in TypeScript, with Next.js and React to use SSR and make it easier to
+develop the website. We make extensive use of tailwind and the Shadcn library
+for styling, and localisation is handled using i18next. The website is hosted on
+our own server with a FastAPI backend. We use PostgreSQL and SQLAlchemy for the
+ORM. The code for the frontend is available on
+[our GitHub page](https://github.com/fsek/WWW-Web), and the backend can be
+accessed [here](https://github.com/fsek/WebWebWeb).
+
+Much of my early frontend work focused on the calendar system. I ended up using
+[a prebuilt calendar system from Robert Kinney which is built on fullcalendar-react](https://github.com/robskinney/shadcn-ui-fullcalendar-example).
+In hindsight, building our own variant based on fullcalendar-react would have
+been easier than adapting the existing component to our complex, bilingual data
+requirements. When building the image gallery page I had learned my lesson and
+opted not to use Vercel's prototype, instead creating my own view and using a
+custom image frame component which is reused for other pages such as the news
+feed.
+
+### Static Export or SSR?
+
+A key architectural decision we revisited mid-project was whether to use static
+export or SSR. We originally planned to use Next.js' static export feature, but
+as the project progressed it became clear that this would not be feasible. Since
+most users prefer Swedish, and to avoid URL-based language switching, we decided
+to not use url-based language storage (internationalized routing), which Next.js
+requires for static multilingual sites. We initially implemented a workaround to
+hold back on the rendering of the page until the language had been initialized,
+but this is not ideal for SEO and is annoying for users. After further
+consideration, we decided to switch to using SSR with Next.js' standalone export
+which allowed us to keep the bilingual support using the Proxy feature
+(middleware). It also unified the development experience with the deployed
+experience, which is very helpful given our team size and the volunteer nature
+of the work.
+
+### Bilingual Websites with i18next
+
+i18next is a powerful library, but configuring it properly took time, especially
+while evaluating rendering approaches. As a consequence, I configured i18next
+for both approaches, deepening my understanding of the library. For SSR, the
+Next.js Proxy feature (previously middleware) is used to detect the user's
+preferred language and set it accordingly before the page is rendered.
+
+### Lessons Learned
+
+Since we didn't have enough time to port over all the features from the old
+website and the old site had many unused and abandoned features, communication
+with the affected parts of the organization was key. Unfortunately, since most
+of the work was concentrated during the summer, we had to contact and ask people
+sporadically and digitally. In similar future projects, I would conduct
+structured stakeholder interviews earlier to identify critical features.
+
+Each year our programming committee recruits around 10-15 volunteers and brings
+them up to speed with our systems. Throughout this process I frequently explain
+what our code, often written by me, does and how the different technologies play
+into each other. This has prompted deeper reflection on the code and highlighted
+areas for deeper technical understanding.
+
+We've had to balance giving the new members enough real work that they feel
+empowered and like they contribute to our projects, while still retaining some
+simplification to not overload people with information. We've made progress on
+this front this year, as we've decided to give out a mini-project using a
+heavily simplified version of our website which still retains the same stack and
+technologies.

@@ -1,22 +1,139 @@
-# Fsektionen.se
+import ProjectLinksCard, { Technology } from "@/components/ProjectLinksCard";
+import { technologies } from "@/app/(app)/projects/(pages)/web/page";
 
-![Bild av kalendern](/web.png)
+export const exampleTimeline = {
+  start: "2023-10-30",
+  startNote: "Första idén, planering",
+  end: "2026-01-26",
+  endNote: "Välkomnandet av nya medlemmar",
+  points: [
+    { date: "2024-01-20", note: "Jag gick med i projektet" },
+    { date: "2025-01-01", note: "Planeringen intensifieras" },
+    { date: "2025-03-15", note: "Start av utveckling" },
+    { date: "2025-09-01", note: "Offentlig lansering" },
+  ],
+};
 
-Sedan början på 2025 har jag tillsammans med andra medlemmar i
-programmeringskommittén på min studentsektion arbetat med att bygga om
-sektionens webbplats (den gamla som nu tar upp fsektionen.se är cirka 11 år
-gammal). Precis som denna webbplats är den skriven i TypeScript, med Next.js som
-ramverk och React som huvudbibliotek. Vi använder Tailwind och
-Shadcn-biblioteket för styling, och lokaliseringshanteringen sker via i18next.
-Webbplatsen är hostad på vår egen server och kommunicerar med backend via
-FastAPI. Databasen är baserad på PostgreSQL och använder SQLAlchemy som ORM. Jag
-har begränsad erfarenhet av utveckling av vår backend, men har arbetat med den
-tillräckligt för att förstå strukturen och kunna göra mindre ändringar vid
-behov. Koden för frontend finns tillgänglig på vår GitHub-sida
-[här](https://github.com/fsek/WWW-Web), och backend-koden kan nås på samma sätt
+# F-sektionen.se
+
+![Bild av nuvarande startsidan](/web.png)
+
+<ProjectLinksCard
+  title="Info och länkar för webbplatsen"
+  codeUrl="https://github.com/fsek/WWW-Web"
+  codeName="GitHub"
+  websiteUrl="https://fsektionen.se"
+  websiteName="Fsektionen.se"
+  technologies={technologies}
+  timeline={exampleTimeline}
+/>
+---
+
+### Introduktion
+
+Sedan början av 2024, med ökad intensitet sedan början av 2025, har jag arbetat
+tillsammans med medlemmar i programmeringsutskottet på min studentorganisation
+med att bygga om webbplatsen för vår organisation. Jag är den främsta
+kodskrivaren på frontenden med cirka 36% av koden samt har arbetat med många
+systemnivåsystem såsom vår API-generering, server-side rendering och
+översättningsladdning. Jag har även bidragit betydligt till backend, där jag är
+den näst största bidragsgivaren för allt arbete sedan början av 2025. Totalt
+arbetar, utöver jag, omkring 5 utvecklare aktivt på frontend och backend.
+
+Omfattningen av samarbetet har lärt mig många läxor utöver att lära mig
+grundläggande React, FastAPI etc. från stacken vi arbetar med. Jag tror att
+förmågan att kunna samarbeta i större grupper och ge feedback på kod skriven av
+andra utvecklare kommer att vara särskilt användbart i framtiden.
+
+Utöver detta har en viktig del av mitt arbete för utskottet varit att delta i
+intervjuer för, och lära de 15 eller så nya medlemmarna som går med varje år hur
+man arbetar med våra projekt. Detta har lett till en större förståelse från min
+sida om hur man kommunicerar tydligt och strukturerar inlärning för personer med
+olika utgångsnivåer i kodandet.
+
+### Konkreta tal
+
+Webbplatsen hanterar nästan 800 medlemskonton för närvarande. I vissa specifika
+situationer, såsom när nya album släpps i bildgalleriet, när
+evenemangsanmälningar öppnar eller när den digitala sångboken behövs under ett
+evenemang, måste servern hantera toppar på över 300 samtidiga anslutningar.
+Detta är något vår tidigare uppställning kämpade med, men med vår nuvarande
+stack fungerar allt smidigt trots att vi endast använder en fysisk server.
+Eftersom vi inte spårar våra användare mer än så här har vi tyvärr inga mer
+detaljerade mätetal.
+
+### Detaljer om teknikstack
+
+Systemet vi ersatte var ett 11 år gammalt legacy-system som använde Ruby on
+Rails, vilket ledde till att i princip ingen hade mer än en ytlig förståelse för
+hur webbplatsen fungerade. Den nya sidan, liksom
+[denna portfolio](/projects/portfolio), är skriven i TypeScript, med Next.js och
+React för att använda SSR och göra det enklare att utveckla hemsidan. Vi
+använder tailwind och Shadcn-biblioteket flitigt för styling, och lokalisering
+hanteras med i18next. Webbplatsen är hostad på vår egen server med en
+FastAPI-backend. Vi använder PostgreSQL och SQLAlchemy för ORM. Koden för
+frontend finns tillgänglig på
+[vår GitHub-sida](https://github.com/fsek/WWW-Web), och backend kan nås
 [här](https://github.com/fsek/WebWebWeb).
 
-Att arbeta med den nya webbplatsen har gett mig mycket erfarenhet av att jobba i
-team av olika storlekar, samt hur man utvecklar funktioner som behöver vara
-tillräckligt flexibla för att anpassas när designen slutligen fastställs och
-tillräckligt konfigurerbara för att passa in på helt olika delar av webbplatsen.
+Mycket av mitt tidiga frontend-arbete fokuserade på kalendersystemet. Jag valde
+till slut att använda
+[ett färdigbyggt kalendersystem från Robert Kinney som är byggt på fullcalendar-react](https://github.com/robskinney/shadcn-ui-fullcalendar-example).
+I efterhand skulle det säkerligen ha varit enklare att bygga vår egen kalender
+baserad på fullcalendar-react än att anpassa den befintliga komponenten till
+våra komplexa, tvåspråkiga datakrav. När jag byggde bildgallerisidan hade jag
+lärt mig läxan och valde att inte använda Vercels prototyp, utan skapade
+istället min egen vy och använde en anpassad bildramkomponent som återanvänds
+för andra sidor såsom nyhetsflödet.
+
+### Statisk export eller SSR?
+
+Ett viktigt beslut vi återbesökte mitt i projektet var huruvida vi skulle
+använda statisk export eller SSR. Vi planerade ursprungligen att använda Next.js
+statiska exportfunktion, men när projektet framskred blev det tydligt att detta
+inte skulle vara genomförbart. Eftersom de flesta användare föredrar svenska,
+och för att undvika URL-baserad språkväxling, bestämde vi oss för att inte
+använda URL-baserad språklagring (internationalized routing), vilket Next.js
+kräver för statiska flerspråkiga sidor. Vi implementerade ursprungligen en
+workaround för att hålla tillbaka renderingen av sidan tills språket hade
+initierats, men detta är inte idealiskt för SEO och är irriterande för
+användare. Efter ytterligare övervägande bestämde vi oss för att byta till att
+använda SSR med Next.js standalone-export vilket gjorde det möjligt för oss att
+behålla det tvåspråkiga stödet med hjälp av Proxy-funktionen från Next.js
+(middleware). Det förenade också utvecklingsupplevelsen med den deployade
+upplevelsen, vilket är mycket hjälpsamt med tanke på vår teamstorlek och att vi
+använder frivilligt arbete.
+
+### Tvåspråkiga webbplatser med i18next
+
+i18next är ett kraftfullt bibliotek, men att konfigurera det ordentligt tog tid,
+särskilt när vi utvärderade renderingsmetoder. Som en konsekvens konfigurerade
+jag i18next för båda metoderna, vilket fördjupade min förståelse för
+biblioteket. För SSR används Next.js Proxy-funktionen (tidigare middleware) för
+att detektera användarens föredragna språk och ställa in det därefter innan
+sidan renderas.
+
+### Lärdomar
+
+Eftersom vi inte hade tillräckligt med tid för att porta över alla funktioner
+från den gamla webbplatsen och den gamla sidan hade många oanvända och övergivna
+funktioner, var kommunikation med de berörda delarna av organisationen
+avgörande. Eftersom det mesta arbetet koncentrerades under sommaren, var vi
+tyvärr däremot tvungna att kontakta och fråga människor sporadiskt och digitalt.
+I liknande framtida projekt skulle jag istället genomföra strukturerade
+intressentintervjuer tidigt för att identifiera kritiska funktioner och se vilka
+som vi inte behöver porta över.
+
+Varje år rekryterar vårt utskott omkring 10-15 volontärer och lär upp dem om
+våra system. Under denna process förklarar jag regelbundet vad vår kod, ofta
+skriven av mig, gör och hur de olika teknologierna hänger ihop. Detta har lett
+till en djupare reflektion över koden och belyst områden där jag kan få en
+starkare teknisk förståelse.
+
+Vi har varit tvungna att balansera att ge de nya medlemmarna tillräckligt med
+riktigt arbete så att de känner sig användbara och att de bidrar till våra
+projekt, samtidigt som vi fortfarande behåller viss förenkling för att inte
+överbelasta dem med information. Vi har gjort framsteg på denna front i år,
+eftersom vi har bestämt oss för att ge ut ett miniprojekt som använder en
+kraftigt förenklad version av vår webbplats men som fortfarande behåller samma
+stack och teknologier.
