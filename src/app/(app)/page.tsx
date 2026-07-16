@@ -10,36 +10,49 @@ const MDXPages: Record<string, React.ComponentType> = {
   en: dynamic(() => import("./home.en.mdx")),
 };
 
+const projects = [
+  {
+    key: "portfolio",
+    imageUrl: "/portfolio.png",
+    pageRoute: "projects/portfolio",
+  },
+  {
+    key: "web",
+    imageUrl: "/web.png",
+    pageRoute: "projects/web",
+  },
+  {
+    key: "app",
+    imageUrl: "/app.png",
+    directLink: "https://github.com/fsek/App2",
+  },
+] as const;
+
 export default function Home() {
   const { t, i18n } = useTranslation();
   const SelectedPage = MDXPages[i18n.language] ?? MDXPages.sv;
   return (
     <>
       <FadeInDown>
+        <p className="mb-2 font-mono text-xs tracking-widest text-primary">
+          ~/
+        </p>
         <div className="prose dark:prose-invert min-w-full text-left">
           <SelectedPage />
         </div>
-        <br />
-        <p className="text-left">{t("projects.description")}</p>
-        <div className="flex flex-col p-4 space-y-5 w-full">
-          <CustomCard
-            title={t("projects.portfolio.title")}
-            description={t("projects.portfolio.teaser")}
-            imageUrl="/portfolio.png"
-            pageRoute="projects/portfolio"
-          ></CustomCard>
-          <CustomCard
-            title={t("projects.web.title")}
-            description={t("projects.web.teaser")}
-            imageUrl="/web.png"
-            pageRoute="projects/web"
-          ></CustomCard>
-          <CustomCard
-            title={t("projects.app.title")}
-            description={t("projects.app.teaser")}
-            imageUrl="/app.png"
-            directLink="https://github.com/fsek/App2"
-          ></CustomCard>
+        <p className="mt-4 text-left">{t("projects.description")}</p>
+        <div className="mt-6 flex w-full flex-col gap-5">
+          {projects.map((p, i) => (
+            <CustomCard
+              key={p.key}
+              index={String(i + 1).padStart(2, "0")}
+              title={t(`projects.${p.key}.title`)}
+              description={t(`projects.${p.key}.teaser`)}
+              imageUrl={p.imageUrl}
+              pageRoute={"pageRoute" in p ? p.pageRoute : undefined}
+              directLink={"directLink" in p ? p.directLink : undefined}
+            />
+          ))}
         </div>
       </FadeInDown>
     </>

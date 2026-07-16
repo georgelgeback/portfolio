@@ -1,6 +1,4 @@
 "use client";
-import { useState, useEffect } from "react";
-import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import Navbar from "../../components/navbar";
 import Link from "next/link";
@@ -15,16 +13,21 @@ export default function MainLayout({
     <div className="flex flex-col min-h-screen">
       <Navbar />
 
-      <main className="flex-grow flex justify-center w-full p-8 pt-0 flex-1">
-        <div className="text-center flex flex-col lg:w-[calc(33%+10rem)] md:w-[calc(50%+10rem)] w-full">
-          <div className="flex flex-col gap-4 sm:m-4 text-foreground">
-            {children}
-          </div>
+      <main className="flex-1 w-full">
+        <div className="mx-auto w-full max-w-3xl px-6 py-10 flex flex-col gap-4 text-foreground">
+          {children}
         </div>
       </main>
 
-      <footer className="text-center text-sm p-4 bg-card border-t-2 border-foreground/10">
-        <Link href="/projects/portfolio">{t("footer")}</Link>
+      <footer className="border-t border-border">
+        <div className="mx-auto w-full max-w-3xl px-6 py-5 text-center">
+          <Link
+            href="/projects/portfolio"
+            className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors"
+          >
+            {t("footer")}
+          </Link>
+        </div>
       </footer>
     </div>
   );

@@ -29,7 +29,7 @@ export const exampleTimeline = {
 />
 ---
 
-### Introduction
+## Introduction
 
 Since the start of 2024, intensifying since the start of 2025, I have been
 working together with members of the programming committee at my student
@@ -51,7 +51,7 @@ each year how to work on our projects. This has led to a greater understanding
 on my part on how to communicate clearly and structure learning for people with
 different starting skills.
 
-### Metrics
+## Metrics
 
 The website handles almost 800 member accounts at present. In some specific
 situations, such as when new albums are released in the image gallery, when
@@ -61,7 +61,7 @@ something our previous setup struggled with, but with our current stack
 everything works smoothly despite the single machine setup. Since we don't track
 our users more than this, we unfortunately don't have more detailed metrics.
 
-### Tech Stack Details
+## Tech Stack Details
 
 The system we replaced was an 11-year old legacy system using Ruby on Rails,
 which led to essentially nobody having more than a cursory understanding of how
@@ -83,7 +83,7 @@ opted not to use Vercel's prototype, instead creating my own view and using a
 custom image frame component which is reused for other pages such as the news
 feed.
 
-### Static Export or SSR?
+## Static Export or SSR?
 
 A key architectural decision we revisited mid-project was whether to use static
 export or SSR. We originally planned to use Next.js' static export feature, but
@@ -99,7 +99,7 @@ which allowed us to keep the bilingual support using the Proxy feature
 experience, which is very helpful given our team size and the volunteer nature
 of the work.
 
-### Bilingual Websites with i18next
+## Bilingual Websites with i18next
 
 i18next is a powerful library, but configuring it properly took time, especially
 while evaluating rendering approaches. As a consequence, I configured i18next
@@ -107,7 +107,7 @@ for both approaches, deepening my understanding of the library. For SSR, the
 Next.js Proxy feature (previously middleware) is used to detect the user's
 preferred language and set it accordingly before the page is rendered.
 
-### Lessons Learned
+## Lessons Learned
 
 Since we didn't have enough time to port over all the features from the old
 website and the old site had many unused and abandoned features, communication

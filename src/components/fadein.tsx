@@ -15,8 +15,8 @@ const FadeInDown: FC<FadeInDownProps> = ({ children }) => {
 
   return (
     <div
-      className={`relative transition-transform duration-700 ease-out transform 
-        ${visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
+      className={`relative transition-[transform,opacity] duration-500 ease-out transform
+        ${visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}
     >
       {children}
     </div>

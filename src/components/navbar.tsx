@@ -1,81 +1,69 @@
 import DarkModeToggle from "./themetoggle";
 import LanguageSwitcher from "../components/languageswitcher";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
-  // text shadows to improve contrast on varied backgrounds
-  const titleStyle = {
-    textShadow: "0 1px 0 rgba(255,255,255,0.28)",
-  };
-
-  const linkStyle = {
-    textShadow: "0 1px 0 rgba(255,255,255,0.2)",
-  };
-
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 8);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const links = [
+    { href: "/", label: t("nav.home") },
+    { href: "/contact", label: t("nav.contact") },
+  ];
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
-    <div
-      className={`
-          bg-white/25 dark:bg-neutral-900/40 bg-clip-padding backdrop-blur-xl rounded-lg sticky top-0 z-50 m-5 transition-[margin] duration-300 ease-in-out border border-foreground/10
-          ${scrolled ? "lg:mx-[calc(20%)] not-lg:mx-5 shadow-lg" : "mx-5"}
-        `}
+    <header
+      className={`sticky top-0 z-50 bg-background border-b border-border transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_1px_8px_rgba(0,0,0,0.06)]" : ""
+      }`}
     >
-      <header className="grid grid-cols-2 sm:grid-cols-3 items-center p-4 w-full">
-        <div className="hidden sm:block">
-          <h1 className="text-2xl font-bold" style={titleStyle}>
+      <div className="mx-auto flex h-14 w-full max-w-3xl items-center justify-between gap-4 px-6">
+        <Link href="/" className="min-w-0">
+          <span className="block truncate text-base lg:text-xl font-semibold tracking-tight">
             Georg Elgebäck
-          </h1>
-        </div>
-        <div className="flex justify-center">
-          <nav className="w-full">
-            <ul className="flex flex-row justify-center items-center text-base sm:text-lg md:text-xl space-x-2 sm:space-x-4">
-              <li>
-                <Link
-                  href="/"
-                  className="hover:text-primary/80"
-                  style={linkStyle}
-                >
-                  {t("nav.home")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-primary/80"
-                  style={linkStyle}
-                >
-                  {t("nav.contact")}
-                </Link>
-              </li>
+          </span>
+        </Link>
+
+        <div className="flex items-center gap-1 sm:gap-2">
+          <nav>
+            <ul className="flex items-center gap-1">
+              {links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`relative inline-flex h-14 items-center px-3 text-sm font-medium transition-colors ${
+                      isActive(link.href)
+                        ? "text-foreground after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:bg-primary"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
+          <div className="ml-1 flex items-center gap-0.5 border-l border-border pl-2 sm:pl-3">
+            <DarkModeToggle />
+            <LanguageSwitcher />
+          </div>
         </div>
-        <div className="flex justify-end gap-1">
-          <DarkModeToggle />
-          <LanguageSwitcher />
-        </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 };
 

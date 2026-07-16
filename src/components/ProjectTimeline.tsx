@@ -49,23 +49,25 @@ export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
     const pct = (t: number) =>
       Math.min(100, Math.max(0, ((t - minTs) / (maxTs - minTs)) * 100));
 
-    const points = (timeline.points ?? [])
-      .map((p) => ({ ...p, _ts: toTs(p.date) }))
+    const markers = [
+      { _ts: s, note: timeline.startNote, date: timeline.start },
+      ...(timeline.points ?? []).map((p) => ({ ...p, _ts: toTs(p.date) })),
+      { _ts: e, note: timeline.endNote, date: timeline.end },
+    ]
       .sort((a, b) => a._ts - b._ts)
-      .map((p) => ({ ...p, _pct: pct(p._ts) }));
+      .map((m) => ({ ...m, _pct: pct(m._ts) }));
 
-    for (let i = 1; i < points.length; i++) {
-      if (points[i]._pct - points[i - 1]._pct < 10) {
-        points[i]._pct = points[i - 1]._pct + 10;
+    // Keep dots from overlapping; labels alternate sides, so this can stay small
+    for (let i = 1; i < markers.length; i++) {
+      if (markers[i]._pct - markers[i - 1]._pct < 4) {
+        markers[i]._pct = markers[i - 1]._pct + 4;
       }
     }
 
     return {
-      s,
-      e,
-      startPct: pct(s),
-      endPct: pct(e),
-      points,
+      startPct: markers[0]._pct,
+      endPct: markers[markers.length - 1]._pct,
+      markers,
     } as const;
   }, [timeline]);
 
@@ -75,112 +77,73 @@ export function ProjectTimeline({ timeline, className }: ProjectTimelineProps) {
     <div className={cn("relative mt-2", className)}>
       {/* Only show when there is enough space */}
       <div className="relative hidden md:block">
-        <div className="relative h-20">
+        <div className="relative h-36">
           {/* Base line (shows overflow area) */}
           <div className="absolute inset-0 flex items-center">
-            <div className="h-1 w-full rounded-full bg-muted" />
+            <div className="h-px w-full bg-border" />
           </div>
 
           {/* Project span highlight */}
           <div
-            className="absolute inset-y-0"
+            className="absolute top-1/2 h-0.5 -translate-y-1/2 bg-primary/50"
             style={{
               left: `${timelineComputed.startPct}%`,
               right: `${100 - timelineComputed.endPct}%`,
             }}
-          >
-            <div
-              className="absolute top-1/2 h-1 -translate-y-1/2 rounded-full bg-primary/40"
-              style={{ left: 0, right: 0 }}
-            />
-          </div>
+          />
 
-          {/* Start tick */}
-          <div
-            className="absolute"
-            style={{
-              left: `${timelineComputed.startPct}%`,
-              top: 0,
-              bottom: 0,
-              transform: "translateX(-50%)",
-            }}
-          >
-            <div className="relative flex h-full flex-col items-center justify-center">
-              <div className="absolute bottom-1/2 mb-2 flex flex-col items-center">
-                {timeline.startNote ? (
-                  <div className="max-w-[14rem] text-center text-xs leading-tight text-foreground line-clamp-3">
-                    {timeline.startNote}
-                  </div>
-                ) : null}
-                <div className="mt-1 text-[10px] leading-none text-muted-foreground">
-                  {formatDate(timeline.start)}
-                </div>
-              </div>
+          {/* Markers, labels alternating above/below the line */}
+          {timelineComputed.markers.map((m, idx) => {
+            const above = idx % 2 === 0;
+            return (
               <div
-                className="h-3 w-3 rounded-full bg-primary ring-2 ring-background shadow"
-                aria-hidden
-              />
-            </div>
-          </div>
-
-          {/* Milestone points */}
-          {timelineComputed.points.map((p, idx) => (
-            <div
-              key={`${p._ts}-${idx}`}
-              className="absolute"
-              style={{
-                left: `${p._pct}%`,
-                top: 0,
-                bottom: 0,
-                transform: "translateX(-50%)",
-              }}
-            >
-              <div className="relative flex h-full flex-col items-center justify-center">
-                <div className="absolute bottom-1/2 mb-2 flex flex-col items-center">
-                  {p.note ? (
-                    <div className="max-w-[14rem] text-center text-xs leading-tight text-foreground line-clamp-3">
-                      {p.note}
-                    </div>
-                  ) : null}
-                  <div className="mt-1 text-[10px] leading-none text-muted-foreground">
-                    {formatDate(p.date)}
+                key={`${m._ts}-${idx}`}
+                className="absolute inset-y-0"
+                style={{
+                  left: `${m._pct}%`,
+                  transform: "translateX(-50%)",
+                }}
+              >
+                <div className="relative flex h-full flex-col items-center justify-center">
+                  <div
+                    className={cn(
+                      "absolute left-1/2 flex w-25 -translate-x-1/2 flex-col items-center",
+                      above ? "bottom-1/2 mb-3" : "top-1/2 mt-3",
+                    )}
+                  >
+                    {/* Date sits closest to the line on either side */}
+                    {above ? (
+                      <>
+                        {m.note ? (
+                          <div className="text-center text-xs leading-tight text-foreground line-clamp-3">
+                            {m.note}
+                          </div>
+                        ) : null}
+                        <div className="mt-1.5 font-mono text-[10px] leading-none whitespace-nowrap text-muted-foreground">
+                          {formatDate(m.date)}
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="mb-1.5 font-mono text-[10px] leading-none whitespace-nowrap text-muted-foreground">
+                          {formatDate(m.date)}
+                        </div>
+                        {m.note ? (
+                          <div className="text-center text-xs leading-tight text-foreground line-clamp-3">
+                            {m.note}
+                          </div>
+                        ) : null}
+                      </>
+                    )}
                   </div>
-                </div>
-                <div
-                  className="h-3 w-3 rounded-full bg-primary/90 ring-2 ring-background shadow"
-                  aria-hidden
-                />
-              </div>
-            </div>
-          ))}
-
-          {/* End tick */}
-          <div
-            className="absolute"
-            style={{
-              left: `${timelineComputed.endPct}%`,
-              top: 0,
-              bottom: 0,
-              transform: "translateX(-50%)",
-            }}
-          >
-            <div className="relative flex h-full flex-col items-center justify-center">
-              <div className="absolute bottom-1/2 mb-2 flex flex-col items-center">
-                {timeline.endNote ? (
-                  <div className="max-w-[14rem] text-center text-xs leading-tight text-foreground line-clamp-3">
-                    {timeline.endNote}
-                  </div>
-                ) : null}
-                <div className="mt-1 text-[10px] leading-none text-muted-foreground">
-                  {formatDate(timeline.end)}
+                  <div
+                    className="h-2.5 w-2.5 rounded-full bg-primary ring-2 ring-background"
+                    aria-hidden
+                  />
                 </div>
               </div>
-              <div
-                className="h-3 w-3 rounded-full bg-primary ring-2 ring-background shadow"
-                aria-hidden
-              />
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@
 
 import FadeInDown from "@/components/fadein";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
 export default function ProjectLayout({
@@ -9,21 +10,25 @@ export default function ProjectLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
   return (
     <div className="relative w-full">
-      <div className="fixed top-40 lg:left-[calc(33%-7rem)] md:left-[calc(25%-7rem)] z-50">
-        <Link href="/">
-          <button className="p-2.5 bg-secondary rounded-lg shadow hover:bg-primary group hidden md:block">
+      <div className="fixed top-20 left-[calc(50vw-24rem-4.5rem)] z-40 hidden lg:block">
+        <Link href="/" aria-label="Back to home">
+          <button className="group flex items-center justify-center p-2.5 rounded-md border border-border bg-background transition-colors hover:border-primary cursor-pointer">
             <ArrowLeft
-              size={24}
-              className="text-secondary-foreground group-hover:text-primary-foreground"
+              size={20}
+              className="text-muted-foreground transition-colors group-hover:text-primary"
             />
           </button>
         </Link>
       </div>
 
       <FadeInDown>
-        <div className="prose dark:prose-invert min-w-full text-left lg:p-4">
+        <p className="mb-2 text-left font-mono text-xs tracking-widest text-primary">
+          ~{pathname}
+        </p>
+        <div className="prose dark:prose-invert min-w-full text-left">
           {children}
         </div>
       </FadeInDown>

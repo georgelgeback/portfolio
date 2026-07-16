@@ -1,0 +1,96 @@
+<!doctype html>
+<!--
+  Template for public/og.png (the social-media preview card).
+  Edit text/colors here, then run scripts/build-og.sh to regenerate.
+  __SANS__ and __MONO__ are replaced with the Geist font files from the
+  Next.js build by the script - leave them as they are.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @font-face {
+        font-family: "GeistSans";
+        src: url("__SANS__") format("woff2");
+        font-weight: 100 900;
+      }
+      @font-face {
+        font-family: "GeistMono";
+        src: url("__MONO__") format("woff2");
+        font-weight: 100 900;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+      }
+      body {
+        background: oklch(0.985 0.004 106);
+        color: oklch(0.24 0.012 155);
+        font-family: "GeistSans", sans-serif;
+        position: relative;
+      }
+      .frame {
+        position: absolute;
+        inset: 28px;
+        border: 1px solid oklch(0.9 0.008 130);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 56px 64px;
+      }
+      .kicker {
+        font-family: "GeistMono", monospace;
+        font-size: 40px;
+        letter-spacing: 0.1em;
+        color: oklch(0.46 0.105 152);
+      }
+      .name {
+        font-size: 120px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.05;
+      }
+      .tagline {
+        margin-top: 20px;
+        font-size: 54px;
+        color: oklch(0.48 0.012 150);
+        letter-spacing: -0.01em;
+      }
+      .bottom {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .rule {
+        flex: 1;
+        height: 1px;
+        background: oklch(0.9 0.008 130);
+      }
+      .domain {
+        font-family: "GeistMono", monospace;
+        font-size: 35px;
+        color: oklch(0.48 0.012 150);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="kicker">~/portfolio</div>
+      <div>
+        <div class="name">Georg Elgebäck</div>
+        <div class="tagline">Engineering physics student &amp; developer</div>
+      </div>
+      <div class="bottom">
+        <div class="domain">georgelgeback.com</div>
+        <div class="rule"></div>
+      </div>
+    </div>
+  </body>
+</html>

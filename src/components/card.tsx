@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
 import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 interface CardProps {
   title: string;
@@ -15,6 +9,7 @@ interface CardProps {
   altText?: string;
   pageRoute?: string;
   directLink?: string;
+  index?: string;
 }
 
 const CustomCard = ({
@@ -24,28 +19,37 @@ const CustomCard = ({
   altText = "Card image",
   pageRoute,
   directLink,
+  index,
 }: CardProps) => {
+  const Arrow = directLink ? ArrowUpRight : ArrowRight;
+
   const content = (
-    <Card className="relative w-full aspect-[16/9] overflow-hidden rounded-lg border border-foreground/20 shadow-lg group">
+    <article className="group w-full overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-primary/60">
       {imageUrl && (
-        <img
-          src={imageUrl}
-          alt={altText}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          draggable={false}
-        />
-      )}
-      <div className="absolute inset-0 flex items-end p-4 bg-black/5 group-hover:bg-black/20 transition-colors">
-        <div className="w-full bg-background/60 p-3 rounded-lg backdrop-blur-md border border-white/20">
-          <CardTitle className="text-card-foreground font-semibold text-lg mb-1 text-left">
-            {title}
-          </CardTitle>
-          <CardDescription className="text-sm text-card-foreground line-clamp-3 text-justify">
-            {description}
-          </CardDescription>
+        <div className="aspect-video w-full overflow-hidden border-b border-border">
+          <img
+            src={imageUrl}
+            alt={altText}
+            className="h-full w-full object-cover"
+            draggable={false}
+          />
         </div>
+      )}
+      <div className="flex items-start justify-between gap-4 p-5 text-left">
+        <div className="min-w-0">
+          {index && (
+            <div className="mb-1.5 font-mono text-xs text-primary">{index}</div>
+          )}
+          <h3 className="text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">
+            {title}
+          </h3>
+          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+            {description}
+          </p>
+        </div>
+        <Arrow className="mt-1 h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
       </div>
-    </Card>
+    </article>
   );
 
   if (directLink) {
@@ -54,7 +58,7 @@ const CustomCard = ({
         href={directLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg"
+        className="block rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         {content}
       </a>
@@ -64,7 +68,7 @@ const CustomCard = ({
     return (
       <Link
         href={pageRoute}
-        className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg"
+        className="block rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         {content}
       </Link>

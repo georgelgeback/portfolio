@@ -16,27 +16,27 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       );
     },
     h1: (props) => (
-      <div className="font-black text-5xl underline text-center text-foreground">
+      <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
         {props.children}
-      </div>
+      </h1>
     ),
     h2: (props) => (
-      <div className="font-bold text-4xl underline text-center text-foreground">
+      <h2 className="text-2xl font-semibold tracking-tight text-foreground after:mt-0.5 after:block after:h-[3px] after:w-10 after:bg-primary after:content-['']">
         {props.children}
-      </div>
+      </h2>
     ),
     h3: (props) => (
-      <div className="font-semibold text-3xl underline text-center text-foreground">
+      <h3 className="text-xl font-semibold tracking-tight text-foreground after:mt-0.5 after:block after:h-0.5 after:w-8 after:bg-primary after:content-['']">
         {props.children}
-      </div>
+      </h3>
     ),
     h4: (props) => (
-      <div className="font-medium text-2xl underline text-center text-foreground">
+      <h4 className="text-lg font-medium tracking-tight text-foreground">
         {props.children}
-      </div>
+      </h4>
     ),
     img: (props) => (
-      <img className="w-full h-auto rounded-lg shadow-md" {...props} />
+      <img className="w-full h-auto rounded-lg border border-border" {...props} />
     ),
     p: (props) => <p className="leading-relaxed text-foreground" {...props} />,
   };

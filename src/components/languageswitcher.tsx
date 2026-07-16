@@ -33,7 +33,7 @@ const LanguageSwitcher = () => {
   return (
     <button
       onClick={handleLanguageToggle}
-      className="p-2 bg-transparent border-2 border-transparent hover:border-primary rounded-lg aspect-[1/1] cursor-pointer"
+      className="p-2 rounded-md aspect-square inline-flex items-center justify-center flex-none cursor-pointer transition-colors hover:bg-muted"
     >
       <Image
         src={languages[language as keyof typeof languages].flag}
